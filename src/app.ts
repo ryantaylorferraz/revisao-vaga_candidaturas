@@ -1,4 +1,5 @@
 import "express-async-errors"
+import cors from "cors"
 import "dotenv/config"
 import "reflect-metadata"
 import express, { json } from "express";
