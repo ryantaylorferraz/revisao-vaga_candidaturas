@@ -7,9 +7,9 @@
     "node": "18"
   },
   "scripts": {
-    "dev": "dotenv -e .env.develop -- tsnd --respawn src/server.ts",
-    "migrate:dev": "dotenv -e .env.develop -- npx prisma migrate dev",
-    "studio:dev": "dotenv -e .env.develop -- npx prisma studio",
+    "dev": "dotenv -e .env -- tsnd --respawn src/server.ts",
+    "migrate:dev": "dotenv -e .env -- npx prisma migrate dev",
+    "studio:dev": "dotenv -e .env -- npx prisma studio",
     "build": "npx tsc",
     "start": "node dist/server.js",
     "migrate:deploy": "npx prisma migrate deploy"
