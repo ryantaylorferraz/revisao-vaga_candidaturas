@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 require("express-async-errors");
+const cors_1 = __importDefault(require("cors"));
 require("dotenv/config");
 require("reflect-metadata");
 const express_1 = __importStar(require("express"));
@@ -37,6 +38,7 @@ const handleErrors_middleware_1 = require("./middlewares/handleErrors.middleware
 const userRouter_1 = require("./routers/userRouter");
 exports.app = (0, express_1.default)();
 exports.app.use((0, helmet_1.default)());
+exports.app.use((0, cors_1.default)());
 exports.app.use((0, express_1.json)());
 exports.app.use("/opportunities", opportunityRouter_1.OpportunityRouter);
 exports.app.use("/users", userRouter_1.userRouter);

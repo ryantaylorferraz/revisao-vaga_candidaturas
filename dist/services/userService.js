@@ -21,14 +21,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserServices = void 0;
 const tsyringe_1 = require("tsyringe");
 const userSchema_1 = require("../schemas/userSchema");
-const bcrypt_1 = require("bcrypt");
+const bcryptjs_1 = require("bcryptjs");
 const prisma_1 = require("../database/prisma");
 const appError_1 = require("../errors/appError");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 let UserServices = class UserServices {
     constructor() {
         this.register = (body) => __awaiter(this, void 0, void 0, function* () {
-            const hashPassword = yield (0, bcrypt_1.hash)(body.password, 10);
+            const hashPassword = yield (0, bcryptjs_1.hash)(body.password, 10);
             const newUser = Object.assign(Object.assign({}, body), { password: hashPassword });
             const data = yield prisma_1.prisma.user.create({
                 data: newUser,
@@ -42,7 +42,7 @@ let UserServices = class UserServices {
             if (!user) {
                 throw new appError_1.AppError(404, "User not registered.");
             }
-            const comparePassword = yield (0, bcrypt_1.compare)(body.password, user.password);
+            const comparePassword = yield (0, bcryptjs_1.compare)(body.password, user.password);
             if (!comparePassword) {
                 throw new appError_1.AppError(404, "Email and Password doesn't match.");
             }

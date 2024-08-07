@@ -6,7 +6,7 @@ import {
   TUserReturnSchema,
   userReturnSchema,
 } from "../schemas/userSchema";
-import { compare, hash } from "bcrypt";
+import { compare, hash } from "bcryptjs";
 import { prisma } from "../database/prisma";
 import { AppError } from "../errors/appError";
 import jwt from "jsonwebtoken";

@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://ryanb:8080@localhost:5432/prisma_revisao_db?schema=public"
+  url      = env("DATABASE_URL")
 }
 
 model User{
@@ -38,4 +38,3 @@ model Application {
   opportunityId Int
   opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
 }
-
