@@ -1,7 +1,7 @@
-import "express-async-errors"
-import cors from "cors"
-import "dotenv/config"
-import "reflect-metadata"
+import "express-async-errors";
+import cors from "cors";
+import "dotenv/config";
+import "reflect-metadata";
 import express, { json } from "express";
 import helmet from "helmet";
 import { OpportunityRouter } from "./routers/opportunityRouter";
@@ -14,7 +14,9 @@ app.use(helmet());
 
 app.use(json());
 
-app.use("/opportunities", OpportunityRouter)
-app.use("/users", userRouter)
+app.use("/opportunities", OpportunityRouter);
+app.use("/users", userRouter);
 
-app.use(HandleErrors.execute)
+app.use(cors());
+
+app.use(HandleErrors.execute);
